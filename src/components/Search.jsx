@@ -1,29 +1,45 @@
 import guestList from '../assets/GuestList.json';
+import {useState} from "react";
 
 function Search() {
-    let foundList = [];
-    const searchGuest = () => {
-        console.log(document.getElementById('nameInput'))
-        foundList = [];
-        if (document.getElementById('nameInput')) {
+    let filteredGuestList = [];
+    const [list, setList] = useState([]);
+
+    const searchGuest = (event) => {
+        filteredGuestList = [];
+        setList([...filteredGuestList]);
+        console.log(list);
+        event.preventDefault();
+        let searchParam = (event.target.searchParam.value);
+        if (searchParam) {
             guestList.forEach(guest => {
-                if (guest.name.includes(name)) {
-                    foundList.push(guest);
+                if (guest.name.toUpperCase().includes(searchParam.toUpperCase())) {
+                    filteredGuestList.push(guest);
                 }
             })
         }
-        console.log(foundList);
+        setList([...filteredGuestList]);
+        // console.log(filteredGuestList);
+        console.log(list);
     }
 
     return (
         <>
             <div className="row font-gold">
-                <input type="text" id="nameInput"/>
-                <button className="btn btn-primary btn-lg" onClick={searchGuest()}>Search</button>
+                <form onSubmit={searchGuest}>
+                    <input type="text" name="searchParam" />
+                    <button className="btn btn-primary btn-lg">Search</button>
+                </form>
+
                 <div>
                     {
-                        foundList.length > 0 && foundList.map((guest) => {
-                            <li>{guest.name} - {guest.table}</li>
+                        list.length > 0 && <h3>GUEST LIST</h3>
+                    }
+                    {
+                        list.length > 0 && list.map((guest, index) => {
+                            return (
+                                <li id={index}>{guest.name} - {guest.table}</li>
+                            )
                         })
                     }
                 </div>
