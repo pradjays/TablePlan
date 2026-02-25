@@ -10,7 +10,7 @@ function NavBar() {
                     <NavLink className="p-3" to="/">Home</NavLink>
                 </div>
                 <div className="row align-items-start d-inline-flex">
-                    <NavLink className="p-3" to="/table-plan">Table Plan</NavLink>
+                    <NavLink className="p-3" to="/seating-plan">Seating Plan</NavLink>
                 </div>
                 <div className="row align-content-between d-inline-flex">
                     <NavLink className="p-3" to="/search">Search</NavLink>

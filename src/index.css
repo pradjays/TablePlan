@@ -85,3 +85,30 @@ button:focus-visible {
   transform: rotate(-5deg);
   height: 2.5rem;
 }
+
+.top-20 {
+  top: 20% !important;
+}
+
+.input-bar {
+  border: none;
+  border-bottom: #AD8C10 1px solid;
+  border-radius: 0;
+  background: #fbf6f3;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: #AD8C10 1px solid;
+  background-color: #FBF6F3;
+}
+
+button:focus {
+  outline: none;
+}
+
+.button-gold {
+  border: none;
+  background: none;
+  color: #AD8C10;
+}
