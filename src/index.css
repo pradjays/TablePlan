@@ -1,5 +1,4 @@
 :root {
-  font-family: "Times New Roman", Times, serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -30,6 +29,7 @@ body {
   min-height: 100vh;
   background: #FBF6F3;
   color: #AD8C10;
+  font-family: "Century Gothic", cursive;
 }
 
 h1 {

@@ -1,10 +1,31 @@
-import guestList from '../assets/GuestList.json';
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
+import * as constantList from '../constants.js'
+import * as commonUtils from '../commonUtils.js';
+import axios from "axios";
+import GoldLotus from "../assets/Lotus-Gold.svg";
+
+const sheetURL = constantList.seatingPlanURL;
 
 function Search() {
     let filteredGuestList = [];
     const [list, setList] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
+    const [guestData, setGuestData] = useState([]);
+
+    const fetchCSVData = () => {
+        axios.get(sheetURL)
+            .then((response) => {
+                const parsedCsvData = commonUtils.parseCSV(response.data);
+                setGuestData(parsedCsvData);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    useEffect(() => {
+        fetchCSVData();
+    }, []);
 
     const searchGuest = (event) => {
         setIsSearching(true);
@@ -13,7 +34,7 @@ function Search() {
         event.preventDefault();
         let searchParam = (event.target.searchParam.value);
         if (searchParam) {
-            guestList.forEach(guest => {
+            guestData.forEach(guest => {
                 if (guest.name.toUpperCase().includes(searchParam.toUpperCase())) {
                     filteredGuestList.push(guest);
                 }
@@ -29,15 +50,18 @@ function Search() {
                 onKeyDown={(event) =>
                 event.key === "Enter" && searchGuest}>
                 <div className="col-12">
-                        <input className="input-bar w-75" type="text" name="searchParam"/>
+                        <input className="input-bar w-75 font-gold" type="text" name="searchParam"/>
                 </div>
                     <div className="col-12">
-                        <button className="button-gold w-75">Search</button>
+                        <button className="button-gold w-75 fw-bold">Search</button>
                 </div>
         </form>
             </div>
             <div className="row text-center">
                 <div>
+                    {
+                        isSearching && <img className="rotate-lotus" src={GoldLotus}/>
+                    }
                     {
                         list.length > 0 && <h3>GUEST LIST</h3>
                     }
