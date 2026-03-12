@@ -1,0 +1,1 @@
+export const seatingPlanURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhOfLbM_Rr8geV61qLhaQB81Isl-g5BR2scdZdM5auNLM6NbwlOpcCHeC7uoNko3GCJJ_Go8Ep01iv/pub?output=csv";

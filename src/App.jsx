@@ -11,6 +11,7 @@ function App() {
             {/*<Router>*/}
                 <Routes>
                     <Route path="/" Component={Home} />
+                    <Route path="/seating-plan" Component={Home} />
                     <Route path="/search" Component={Search} />
                 </Routes>
             {/*</Router>*/}
