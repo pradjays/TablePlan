@@ -1,31 +1,15 @@
-import React, {useEffect, useState} from "react";
-import * as constantList from '../constants.js'
-import * as commonUtils from '../commonUtils.js';
-import axios from "axios";
+import React, {useState} from "react";
 import GoldLotus from "../assets/Lotus-Gold.svg";
-
-const sheetURL = constantList.seatingPlanURL;
+import {useLocation} from "react-router";
+import {NavLink} from "react-router-dom";
 
 function Search() {
     let filteredGuestList = [];
     const [list, setList] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
-    const [guestData, setGuestData] = useState([]);
 
-    const fetchCSVData = () => {
-        axios.get(sheetURL)
-            .then((response) => {
-                const parsedCsvData = commonUtils.parseCSV(response.data);
-                setGuestData(parsedCsvData);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
-
-    useEffect(() => {
-        fetchCSVData();
-    }, []);
+    const location = useLocation();
+    const { guestListJSON } = location.state;
 
     const searchGuest = (event) => {
         setIsSearching(true);
@@ -34,7 +18,7 @@ function Search() {
         event.preventDefault();
         let searchParam = (event.target.searchParam.value);
         if (searchParam) {
-            guestData.forEach(guest => {
+            guestListJSON.forEach(guest => {
                 if (guest.name.toUpperCase().includes(searchParam.toUpperCase())) {
                     filteredGuestList.push(guest);
                 }
@@ -69,7 +53,13 @@ function Search() {
                         list.length > 0 && list.map((guest, index) => {
                             return (
                                 <div key={index.toString()}>
-                                    <b><i>{guest.name}</i></b> at <b>Table {guest.table}</b></div>
+                                    <b><i>{guest.name}</i></b> in&nbsp;
+                                    <b><NavLink to="/table-list" className="font-gold-link"
+                                                state={{ guestListJSON: guestListJSON,
+                                                    tableNo: guest.table}}>
+                                        Row {guest.table}
+                                    </NavLink>
+                                    </b></div>
                             )
                         })
                     }

@@ -73,6 +73,10 @@ button:focus-visible {
   background: #AD8C10;
 }
 
+.bg-beige {
+  background: #FBF6F3;
+}
+
 .font-gold {
   color: #AD8C10;
 }
@@ -111,4 +115,18 @@ button:focus {
   border: none;
   background: none;
   color: #AD8C10;
+}
+
+.accordion-button-gold {
+  background: #fbf6f3;
+  padding: 0.5rem;
+  border-bottom: 1px solid #Ad8c10;
+  color: #ad8c10;
+}
+
+.font-gold-link {
+  color: #ad8c10;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
