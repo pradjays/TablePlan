@@ -4,6 +4,7 @@ function TableList() {
     const location = useLocation();
     const guestListJSON = location.state.guestListJSON;
     const tableNo = location.state.tableNo;
+    let counter = 0;
 
     return (
         <div className="p-4">
@@ -11,7 +12,6 @@ function TableList() {
             {
                 guestListJSON.length > 0 &&
                 guestListJSON.map((guest, index) => {
-                    let counter = 0;
                     if(guest.table === tableNo) {
                         counter++;
                         return (

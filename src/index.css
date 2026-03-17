@@ -130,3 +130,36 @@ button:focus {
   text-decoration: underline;
   text-underline-offset: 0.2rem;
 }
+
+.font-elegant {
+  font-family: "Monotype Corsiva", cursive;
+}
+
+.cursor{
+  position: relative;
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid #FBF6F3;
+  font-size: 30px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+/* Animation */
+.typewriter-animation {
+  animation:
+          typewriter 5s steps(50) 1s 1 normal both
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.delayed-animation-1 {
+  animation-delay: 3s;
+}
+
+.delayed-animation-2 {
+  animation-delay: 9s;
+}

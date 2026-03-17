@@ -30,17 +30,14 @@ function NavBar() {
     return (
         <nav className="navbar navbar-expand-lg position-absolute bg-gold font-beige start-0 top-0 w-100">
             <div className="container">
-                <div className="row align-items-start d-inline-flex">
-                    <NavLink className="p-3 font-beige" to="/">Home</NavLink>
-                </div>
-                <div className="row align-items-start d-inline-flex">
-                    <NavLink className="p-3 font-beige" to="/seating-plan" state={{ guestList : orderedGuestData}}>Seating Plan</NavLink>
-                </div>
                 <div className="row align-content-between d-inline-flex">
                     <NavLink className="p-3 font-beige" to="/search" state={{ guestListJSON: guestData}}>Search</NavLink>
                 </div>
                 <div className="row align-items-end">
-                    <img className="rotate-lotus" src={Lotus}/>
+                    <NavLink to="/"><img className="rotate-lotus" src={Lotus}/></NavLink>
+                </div>
+                <div className="row align-items-start d-inline-flex">
+                    <NavLink className="p-3 font-beige" to="/seating-plan" state={{ guestList : orderedGuestData}}>Seating Plan</NavLink>
                 </div>
             </div>
         </nav>
