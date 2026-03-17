@@ -2,7 +2,7 @@ import {useLocation} from "react-router";
 
 function SeatingPlan() {
     const location = useLocation();
-    const {guestList} = location.state;
+    const guestList = location.state.guestList;
 
     return (
         <div className="row p-4">
