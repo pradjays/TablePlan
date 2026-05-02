@@ -30,6 +30,7 @@ body {
   background: #FBF6F3;
   color: #AD8C10;
   font-family: "Century Gothic", sans-serif;
+  width: 100vw;
 }
 
 h1 {
@@ -157,10 +158,14 @@ button:focus {
 }
 
 .delayed-animation-1 {
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 .delayed-animation-2 {
+  animation-delay: 3s;
+}
+
+.delayed-animation-3 {
   animation-delay: 4s;
 }
 
@@ -174,4 +179,8 @@ button:focus {
 
 .font-size-s {
   font-size: 1.25rem;
+}
+
+.vw-100 {
+  width: 100vw;
 }
