@@ -41,20 +41,21 @@ function Search() {
                 </div>
         </form>
             </div>
+            <div className="row"><br/></div>
             <div className="row text-center">
                 <div>
                     {
                         isSearching && <img className="rotate-lotus" src={GoldLotus}/>
                     }
                     {
-                        list.length > 0 && <h3>GUEST LIST</h3>
+                        list.length > 0 && <div className="font-size-l fw-bold">GUEST LIST</div>
                     }
                     {
                         list.length > 0 && list.map((guest, index) => {
                             return (
-                                <div key={index.toString()}>
+                                <div key={index.toString()} className="font-size-m">
                                     <b><i>{guest.name}</i></b> in&nbsp;
-                                    <b><NavLink to="/table-list" className="font-gold-link"
+                                    <b><NavLink to="/table-list" className="font-gold-link fw-bold"
                                                 state={{ guestListJSON: guestListJSON,
                                                     tableNo: guest.table}}>
                                         Row {guest.table}

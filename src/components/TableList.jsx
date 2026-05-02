@@ -8,14 +8,14 @@ function TableList() {
 
     return (
         <div className="p-4">
-            <h3 className="fw-bold">Guests In Row {tableNo}</h3>
+            <h3 className="fw-bold font-size-l">Guests In Row {tableNo}</h3>
             {
                 guestListJSON.length > 0 &&
                 guestListJSON.map((guest, index) => {
                     if(guest.table === tableNo) {
                         counter++;
                         return (
-                            <div className="font-gold" key={index}>
+                            <div className="font-gold font-size-m" key={index}>
                                 {counter}. {guest.name}
                             </div>
                         );

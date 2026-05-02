@@ -29,7 +29,7 @@ body {
   min-height: 100vh;
   background: #FBF6F3;
   color: #AD8C10;
-  font-family: "Century Gothic", cursive;
+  font-family: "Century Gothic", sans-serif;
 }
 
 h1 {
@@ -157,9 +157,21 @@ button:focus {
 }
 
 .delayed-animation-1 {
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 
 .delayed-animation-2 {
-  animation-delay: 9s;
+  animation-delay: 4s;
+}
+
+.font-size-l {
+  font-size: 2.5rem;
+}
+
+.font-size-m {
+  font-size: 1.75rem;
+}
+
+.font-size-s {
+  font-size: 1.25rem;
 }
